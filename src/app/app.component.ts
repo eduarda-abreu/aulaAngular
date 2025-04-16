@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
-
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +7,23 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = "Contador de Cliques";
   clickCount = 0;
 
-  imagens = [
-    'assets/img1.png',
-    'assets/img2.png',
-    'assets/img3.png'
+  // Lista de imagens (use URLs locais ou online)
+  imagens: string[] = [
+    'assets/img1.jpg',
+    'assets/img2.jpg',
+    'assets/img3.jpg',
+    'assets/img4.jpg'
   ];
 
-  imagemAtual = this.imagens[0];
+  get imagemAtual(): string {
+    return this.imagens[this.clickCount % this.imagens.length];
+  }
 
-  contarClique() {
+  contarClique(): void {
     this.clickCount++;
-    const index = this.clickCount % this.imagens.length;
-    this.imagemAtual = this.imagens[index];
   }
 }
+
