@@ -10,14 +10,17 @@
 
 <main class="main">
   <div style="text-align: center; margin-top: 50px;">
-    <h1>Contador de Cliques: {{ clickCount }}</h1>
-    
-    <img [src]="imagemAtual" alt="Imagem atual" width="300" style="border-radius: 10px; box-shadow: 0 0 10px #000; margin: 20px 0;">
-    
-    <br>
-    <button (click)="contarClique()" style="padding: 10px 20px; font-size: 18px; background: black; color: lime; border: none; border-radius: 8px; cursor: pointer;">
-      Clique aqui
-    </button>
+    <h1>Contador: {{ contador }}</h1>
+  
+    <div 
+      (click)="contarClique()"
+      [style.background]="corAtual"
+      style="width: 200px; height: 60px; margin: 0 auto; cursor: pointer; border-radius: 20px; transition: 0.3s"
+    ><br>
+    clique aqui
+    </div>
+  
+    <p>Clique no botão para mudar a cor!</p>
   </div>
   
     
